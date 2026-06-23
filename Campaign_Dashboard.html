@@ -23,6 +23,14 @@
   .kpi label{font-size:10px;font-weight:700;color:#4A6274;letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:6px}
   .kpi .val{font-size:24px;font-weight:700;color:#2D3E50}
   .kpi .sub{font-size:10px;color:#4A6274;margin-top:3px}
+  .filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+  .filter-bar span{font-size:11px;font-weight:700;color:#4A6274;text-transform:uppercase;letter-spacing:.5px;margin-right:4px}
+  .filter-btn{padding:5px 14px;border-radius:20px;border:1.5px solid #CBD5E0;background:#fff;font-size:11px;font-weight:700;color:#4A6274;cursor:pointer;transition:all .15s}
+  .filter-btn.active{background:#2D3E50;color:#fff;border-color:#2D3E50}
+  .filter-btn.su.active{background:#3AB54A;border-color:#3AB54A;color:#fff}
+  .filter-btn.gs.active{background:#1A6FA8;border-color:#1A6FA8;color:#fff}
+  .filter-btn.zombie.active{background:#7B1FA2;border-color:#7B1FA2;color:#fff}
+  .filter-btn.active-ret.active{background:#F0A500;border-color:#F0A500;color:#fff}
   .panel{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-bottom:20px;overflow:hidden}
   .panel-hdr{background:#2D3E50;color:#fff;padding:12px 18px;font-size:12px;font-weight:700;letter-spacing:.4px;display:flex;justify-content:space-between;align-items:center}
   .panel-hdr .badge{font-size:10px;background:#3AB54A;color:#fff;padding:2px 8px;border-radius:10px;font-weight:600}
@@ -32,13 +40,14 @@
   td{padding:9px 12px;border-bottom:1px solid #EEF2EE;font-size:12px;vertical-align:middle}
   tr:last-child td{border-bottom:none}
   tr:hover td{background:#F9FCF9}
+  tr.hidden-row{display:none}
   .tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
   .tag.su{background:#E6F9EB;color:#1E7E34}
   .tag.gs{background:#E8F4FD;color:#1A6FA8}
   .tag.ios{background:#F0EFF9;color:#5856D6}
   .tag.android{background:#FFF3E0;color:#E65100}
-  .tag.email{background:#FCF3FF;color:#7B1FA2}
-  .tag.cm{background:#FFF8E1;color:#795548}
+  .tag.zombie{background:#F3E8FF;color:#7B1FA2}
+  .tag.active-ret{background:#FFF8E1;color:#F0A500}
   .conf-win{color:#1E7E34;font-weight:700}
   .conf-low{color:#E05252;font-weight:600}
   .conf-med{color:#F0A500;font-weight:600}
@@ -46,10 +55,17 @@
   .lift-pos{color:#1E7E34;font-weight:700}
   .lift-neg{color:#E05252;font-weight:700}
   .lift-na{color:#aaa}
-  .bar-wrap{display:flex;align-items:center;gap:8px}
-  .bar-bg{background:#E2EAE0;border-radius:3px;height:8px;flex:1;max-width:80px}
-  .bar-fill{height:8px;border-radius:3px;background:#3AB54A}
-  .bar-fill.blue{background:#1A6FA8}
+  .chart-area{padding:20px;display:flex;gap:20px;flex-wrap:wrap}
+  .chart-box{flex:1;min-width:280px}
+  .chart-box h4{font-size:11px;font-weight:700;color:#4A6274;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+  .bc-row{display:flex;align-items:center;gap:8px}
+  .bc-label{font-size:10px;color:#4A6274;width:200px;flex-shrink:0;text-align:right}
+  .bc-bar-bg{background:#E2EAE0;border-radius:3px;height:16px;flex:1}
+  .bc-bar{height:16px;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:9px;font-weight:700;color:#fff;min-width:4px;transition:width .3s}
+  .bc-val{font-size:10px;color:#2D3E50;width:50px;font-weight:600}
+  .bar-chart{display:flex;flex-direction:column;gap:8px}
+  .section-label{font-size:10px;font-weight:700;color:#4A6274;letter-spacing:.6px;padding:7px 12px;background:#F4F8F4;border-bottom:1px solid #E2EAE0;text-transform:uppercase}
+  .hidden{display:none}
   .findings-row{display:flex;gap:14px;margin-bottom:20px;flex-wrap:wrap}
   .finding{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px;flex:1;min-width:200px;border-left:4px solid #3AB54A}
   .finding.amber{border-left-color:#F0A500}
@@ -57,17 +73,7 @@
   .finding.blue{border-left-color:#1A6FA8}
   .finding h4{font-size:11px;font-weight:700;color:#4A6274;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
   .finding p{font-size:12px;color:#2D3E50;line-height:1.5}
-  .section-label{font-size:10px;font-weight:700;color:#4A6274;letter-spacing:.6px;padding:7px 12px;background:#F4F8F4;border-bottom:1px solid #E2EAE0;text-transform:uppercase}
-  .hidden{display:none}
-  .chart-area{padding:20px;display:flex;gap:20px;flex-wrap:wrap}
-  .chart-box{flex:1;min-width:280px}
-  .chart-box h4{font-size:11px;font-weight:700;color:#4A6274;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
-  .bar-chart{display:flex;flex-direction:column;gap:8px}
-  .bc-row{display:flex;align-items:center;gap:8px}
-  .bc-label{font-size:10px;color:#4A6274;width:200px;flex-shrink:0;text-align:right}
-  .bc-bar-bg{background:#E2EAE0;border-radius:3px;height:16px;flex:1}
-  .bc-bar{height:16px;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:9px;font-weight:700;color:#fff;min-width:4px}
-  .bc-val{font-size:10px;color:#2D3E50;width:50px;font-weight:600}
+  .kpi-dynamic{transition:all .2s}
 </style>
 </head>
 <body>
@@ -78,38 +84,44 @@
 </div>
 
 <div class="tab-row">
-  <div class="tab active" onclick="showTab('re')">Re-Engagement &amp; Retention</div>
-  <div class="tab" onclick="showTab('fh')">Feature Highlights</div>
+  <div class="tab active" onclick="showTab('re',event)">Re-Engagement &amp; Retention</div>
+  <div class="tab" onclick="showTab('fh',event)">Feature Highlights</div>
 </div>
 
 <!-- ═══════════════ RE-ENGAGEMENT TAB ════════════════ -->
 <div id="tab-re" class="content">
 
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <span>Filter:</span>
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn zombie" onclick="setFilter('zombie',this)">Zombie Re-Engagement</button>
+    <button class="filter-btn active-ret" onclick="setFilter('active',this)">Active Retention</button>
+    <button class="filter-btn su" onclick="setFilter('su',this)">SwingU</button>
+    <button class="filter-btn gs" onclick="setFilter('gs',this)">Golfshot</button>
+  </div>
+
+  <!-- KPIs -->
   <div class="kpi-row">
-    <div class="kpi">
+    <div class="kpi kpi-dynamic" id="kpi-sessions">
       <label>Total Sessions Driven</label>
-      <div class="val">42,307</div>
-      <div class="sub">All re-engagement campaigns</div>
+      <div class="val" id="kpi-sessions-val">42,307</div>
+      <div class="sub" id="kpi-sessions-sub">All re-engagement campaigns</div>
     </div>
-    <div class="kpi blue">
+    <div class="kpi blue kpi-dynamic" id="kpi-campaigns">
       <label>Campaigns Launched</label>
-      <div class="val">22</div>
+      <div class="val" id="kpi-campaigns-val">22</div>
       <div class="sub">SU + GS, push only</div>
     </div>
-    <div class="kpi">
-      <label>SU iOS Zombie — 6/15</label>
-      <div class="val">100%</div>
-      <div class="sub">Confidence | 2,685 sessions</div>
-    </div>
-    <div class="kpi blue">
-      <label>GS iOS Zombie — 6/17</label>
-      <div class="val">96.1%</div>
-      <div class="sub">Confidence | 4,085 sessions</div>
+    <div class="kpi kpi-dynamic">
+      <label id="kpi-best-label">Best iOS Result</label>
+      <div class="val" id="kpi-best-val">100%</div>
+      <div class="sub" id="kpi-best-sub">GS Pre-Round 6/19 | 4,371 sessions</div>
     </div>
     <div class="kpi amber">
       <label>Active vs Zombie Ratio</label>
       <div class="val">~10x</div>
-      <div class="sub">39.52% vs 3.71% (SU)</div>
+      <div class="sub">39.52% vs 3.71% session rate (SU)</div>
     </div>
     <div class="kpi amber">
       <label>Pending Data Pulls</label>
@@ -118,126 +130,24 @@
     </div>
   </div>
 
-  <!-- Chart -->
+  <!-- Charts -->
   <div class="panel">
-    <div class="panel-hdr">Sessions by Campaign <span class="badge">Treatment Group</span></div>
+    <div class="panel-hdr">Sessions &amp; Session Rates by Campaign <span class="badge">Treatment Group</span></div>
     <div class="chart-area">
-      <div class="chart-box" style="flex:2">
-        <h4>Sessions Driven (Treatment) — Completed Campaigns</h4>
-        <div class="bar-chart">
-          <div class="bc-row">
-            <div class="bc-label">SU Active Recap 6/8</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:100%;background:#3AB54A">19,284</div></div>
-            <div class="bc-val">19,284</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Pre-Round Prep 6/5</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:23%;background:#1A6FA8">4,461</div></div>
-            <div class="bc-val">4,461</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS iOS Zombie 6/17</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:21%;background:#1A6FA8">4,085</div></div>
-            <div class="bc-val">4,085</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Inactive Recap 6/8</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:14.6%;background:#1A6FA8">2,819</div></div>
-            <div class="bc-val">2,819</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU iOS Zombie 6/15</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:13.9%;background:#3AB54A">2,685</div></div>
-            <div class="bc-val">2,685</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Pre-Round Prep 6/5</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:14.1%;background:#3AB54A">2,714</div></div>
-            <div class="bc-val">2,714</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Android Zombie 6/15</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:2%;background:#3AB54A">382</div></div>
-            <div class="bc-val">382</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Android Zombie 6/17</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:0.3%;background:#1A6FA8">54</div></div>
-            <div class="bc-val">54</div>
-          </div>
-        </div>
+      <div class="chart-box" style="flex:2" id="sessions-chart">
+        <h4>Sessions Driven (Treatment)</h4>
+        <div class="bar-chart" id="sessions-bars"></div>
       </div>
-      <div class="chart-box">
-        <h4>Session Rate — Zombie vs Active</h4>
-        <div class="bar-chart">
-          <div class="bc-row">
-            <div class="bc-label">SU Active Users (6/8)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:100%;background:#3AB54A">39.52%</div></div>
-            <div class="bc-val">39.52%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Android Zombie (6/15)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:9%;background:#7CC47F">3.56%</div></div>
-            <div class="bc-val">3.56%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU iOS Zombie (6/15)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:6.5%;background:#7CC47F">2.57%</div></div>
-            <div class="bc-val">2.57%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Pre-Round Prep (6/5)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:9.4%;background:#7CC47F">3.71%</div></div>
-            <div class="bc-val">3.71%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Pre-Round Prep (6/5)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:3.5%;background:#5BA3D9">1.39%</div></div>
-            <div class="bc-val">1.39%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS iOS Zombie (6/17)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:3.2%;background:#5BA3D9">1.27%</div></div>
-            <div class="bc-val">1.27%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Inactive Recap (6/8)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:2.2%;background:#5BA3D9">0.88%</div></div>
-            <div class="bc-val">0.88%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Android Zombie (6/17)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:1.4%;background:#5BA3D9">0.56%</div></div>
-            <div class="bc-val">0.56%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Android Pre-Round (6/19)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:13%;background:#7CC47F">5.15%</div></div>
-            <div class="bc-val">5.15%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU iOS Pre-Round (6/19)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:8.6%;background:#7CC47F">3.38%</div></div>
-            <div class="bc-val">3.38%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS iOS Pre-Round (6/19)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:3.4%;background:#5BA3D9">1.36%</div></div>
-            <div class="bc-val">1.36%</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Android Pre-Round (6/19)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:0.9%;background:#5BA3D9">0.37%</div></div>
-            <div class="bc-val">0.37%</div>
-          </div>
-        </div>
+      <div class="chart-box" id="rates-chart">
+        <h4>Session Rate (Treatment)</h4>
+        <div class="bar-chart" id="rate-bars"></div>
       </div>
     </div>
   </div>
 
-  <!-- Table -->
+  <!-- Campaign table -->
   <div class="panel">
-    <div class="panel-hdr">All Campaigns — Re-Engagement &amp; Retention <span class="badge blue">18 Total</span></div>
+    <div class="panel-hdr">All Campaigns <span class="badge blue" id="table-count">22 Total</span></div>
     <table>
       <thead>
         <tr>
@@ -246,113 +156,7 @@
           <th>Lift</th><th>Confidence</th><th>Conv B</th><th>Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr><td colspan="11" class="section-label">✅ COMPLETED — DATA IN</td></tr>
-        <tr>
-          <td>6/15/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td><strong>2,685</strong></td><td>2.57%</td><td>1.98%</td>
-          <td class="lift-pos">+0.59pp</td><td class="conf-win">100% ✅</td>
-          <td>266 course explore</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/15/26</td><td><span class="tag su">SU</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>382</td><td>3.56%</td><td>3.72%</td>
-          <td class="lift-neg">-0.16pp</td><td class="conf-low">22%</td>
-          <td>36 course explore</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/17/26</td><td><span class="tag gs">GS</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td><strong>4,085</strong></td><td>1.27%</td><td>1.15%</td>
-          <td class="lift-pos">+0.12pp</td><td class="conf-win">96.14% ✅</td>
-          <td>1,617 round started</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/17/26</td><td><span class="tag gs">GS</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>54</td><td>0.56%</td><td>0.57%</td>
-          <td class="lift-neg">-0.01pp</td><td class="conf-low">1.89%</td>
-          <td>26 round started</td><td>✅ Complete</td>
-        </tr>
-        <tr><td colspan="11" class="section-label">📊 PRE-PROGRAM (No Control Groups)</td></tr>
-        <tr>
-          <td>6/8/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Active Retention</td><td><strong>19,284</strong></td><td>39.52%</td><td>—</td>
-          <td class="lift-na">No CG</td><td class="conf-pend">Pre-program</td>
-          <td>8,661 round saved</td><td>📊 Baseline</td>
-        </tr>
-        <tr>
-          <td>6/8/26</td><td><span class="tag gs">GS</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td>2,819</td><td>0.88%</td><td>—</td>
-          <td class="lift-na">No CG</td><td class="conf-pend">Pre-program</td>
-          <td>423 facility selected</td><td>📊 Baseline</td>
-        </tr>
-        <tr>
-          <td>6/5/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td>2,714</td><td>3.71%</td><td>—</td>
-          <td class="lift-na">No CG</td><td class="conf-pend">Pre-program</td>
-          <td>1,573 course selected</td><td>📊 Baseline</td>
-        </tr>
-        <tr>
-          <td>6/5/26</td><td><span class="tag gs">GS</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td>4,461</td><td>1.39%</td><td>—</td>
-          <td class="lift-na">No CG</td><td class="conf-pend">Pre-program</td>
-          <td>721 facility selected</td><td>📊 Baseline</td>
-        </tr>
-        <tr><td colspan="11" class="section-label">⏳ PENDING — Windows Close 6/22–6/25</td></tr>
-        <tr>
-          <td>6/22/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/25</td><td>—</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/22/26</td><td><span class="tag su">SU</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/25</td><td>—</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/22/26</td><td><span class="tag gs">GS</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/25</td><td>—</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/22/26</td><td><span class="tag gs">GS</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/25</td><td>—</td><td>⏳ Pending</td>
-        </tr>
-        <tr><td colspan="11" class="section-label">✅ 6/19 PRE-ROUND PREP — COMPLETE</td></tr>
-        <tr>
-          <td>6/19/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td><strong>3,609</strong></td><td>3.38%</td><td>2.87%</td>
-          <td class="lift-pos">+0.51pp</td><td class="conf-win">99.83% ✅</td>
-          <td>448 course explore</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/19/26</td><td><span class="tag su">SU</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>573</td><td>5.15%</td><td>4.67%</td>
-          <td class="lift-pos">+0.48pp</td><td class="conf-low">54.91%</td>
-          <td>65 course explore</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/19/26</td><td><span class="tag gs">GS</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Zombie Re-Engagement</td><td><strong>4,371</strong></td><td>1.36%</td><td>1.12%</td>
-          <td class="lift-pos">+0.24pp</td><td class="conf-win">100% ✅</td>
-          <td>819 facility selected</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/19/26</td><td><span class="tag gs">GS</span></td><td><span class="tag android">Android</span></td>
-          <td>Zombie Re-Engagement</td><td>35</td><td>0.37%</td><td>0.09%</td>
-          <td class="lift-pos">+0.28pp</td><td class="conf-low">59.45%</td>
-          <td>15 round setup started</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>6/20/26</td><td><span class="tag su">SU</span></td><td><span class="tag ios">iOS</span></td>
-          <td>Feature Highlight</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/23</td><td>—</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/20/26</td><td><span class="tag su">SU</span></td><td><span class="tag android">Android</span></td>
-          <td>Feature Highlight</td><td>—</td><td>—</td><td>—</td>
-          <td class="lift-na">—</td><td class="conf-pend">Closes 6/23</td><td>—</td><td>⏳ Pending</td>
-        </tr>
+      <tbody id="campaign-tbody">
       </tbody>
     </table>
   </div>
@@ -360,262 +164,207 @@
 
 <!-- ═══════════════ FEATURE HIGHLIGHTS TAB ════════════════ -->
 <div id="tab-fh" class="content hidden">
-
   <div class="kpi-row">
-    <div class="kpi">
-      <label>Feature Weeks Complete</label>
-      <div class="val">5</div>
-      <div class="sub">Plays Like, AST, Golf Bag, Handicap, Shot Tracking</div>
-    </div>
-    <div class="kpi">
-      <label>Paid Push Win Rate</label>
-      <div class="val">2/2</div>
-      <div class="sub">Positive lift, SU + GS paid push</div>
-    </div>
-    <div class="kpi amber">
-      <label>Best Result</label>
-      <div class="val">+2.77pp</div>
-      <div class="sub">SU Plays Like — Paid Push, 98.4% conf</div>
-    </div>
-    <div class="kpi red">
-      <label>SU Email Lift</label>
-      <div class="val">0 / 3</div>
-      <div class="sub">Positive lifts across all 3 completed email weeks</div>
-    </div>
-    <div class="kpi blue">
-      <label>This Week</label>
-      <div class="val">6/26</div>
-      <div class="sub">Touch-Screen Dist (SU) / Watch-Only (GS)</div>
-    </div>
+    <div class="kpi"><label>Feature Weeks Complete</label><div class="val">5</div><div class="sub">Plays Like, AST, Golf Bag, Handicap, Shot Tracking</div></div>
+    <div class="kpi"><label>Paid Push Win Rate</label><div class="val">2/2</div><div class="sub">Positive lift — SU + GS paid push</div></div>
+    <div class="kpi amber"><label>Best Result</label><div class="val">+2.77pp</div><div class="sub">SU Plays Like — Paid Push, 98.4% conf</div></div>
+    <div class="kpi red"><label>SU Email Lift</label><div class="val">0 / 3</div><div class="sub">No session lift across 3 completed email weeks</div></div>
+    <div class="kpi blue"><label>This Week</label><div class="val">6/26</div><div class="sub">Touch-Screen Dist (SU) / Watch-Only (GS)</div></div>
   </div>
-
   <div class="findings-row">
-    <div class="finding">
-      <h4>✅ Paid Push Consistent Winner</h4>
-      <p>Both apps show positive lift on paid user push campaigns. SU Plays Like hit 98.4% confidence at +2.77pp — strongest result in program. GS Auto-Shot Tracking positive at ~65% confidence. Pattern is reliable.</p>
-    </div>
-    <div class="finding amber">
-      <h4>⚠️ Free Push Mixed Results</h4>
-      <p>Free user push underperforms or matches control in both apps. SU Plays Like free push was -0.28pp; GS AST -0.10pp. Likely segment-level effect — free users are more passive. Worth continued testing.</p>
-    </div>
-    <div class="finding red">
-      <h4>🔴 SU Email 0-for-3</h4>
-      <p>Three feature highlight weeks, zero meaningful email lift in SU. May reflect list quality, subject line weakness, or email as wrong channel for this audience. Flag for Jacob — worth a strategic review.</p>
-    </div>
-    <div class="finding blue">
-      <h4>📊 Sub Starts Signal — Shot Tracking</h4>
-      <p>Shot Tracking iOS push drove 106 sub starts (treatment) vs 7 (control) despite only 69.65% confidence. Strong monetization signal worth tracking even when the session confidence is below threshold.</p>
-    </div>
+    <div class="finding"><h4>✅ Paid Push Consistent Winner</h4><p>Both apps show positive lift on paid user push campaigns. SU Plays Like hit 98.4% confidence at +2.77pp — strongest result in program. Pattern is reliable.</p></div>
+    <div class="finding amber"><h4>⚠️ Free Push Mixed Results</h4><p>Free user push underperforms or matches control in both apps. SU Plays Like -0.28pp; GS AST -0.10pp. Likely segment-level effect — free users are more passive.</p></div>
+    <div class="finding red"><h4>🔴 SU Email 0-for-3</h4><p>Three feature highlight weeks, zero meaningful email lift in SU. May reflect list quality, subject line weakness, or email as wrong channel for this audience. Flag for Jacob.</p></div>
+    <div class="finding blue"><h4>📊 Sub Starts Signal</h4><p>Shot Tracking iOS push drove 106 sub starts (treatment) vs 7 (control) despite only 69.65% confidence. Strong monetization signal worth tracking even below session confidence threshold.</p></div>
   </div>
-
   <div class="panel">
-    <div class="panel-hdr">Lift by Campaign — Feature Highlights <span class="badge">Treatment vs Control</span></div>
+    <div class="panel-hdr">Lift by Channel — Feature Highlights <span class="badge">Treatment vs Control</span></div>
     <div class="chart-area">
       <div class="chart-box" style="flex:2">
         <h4>Session Rate Lift (pp) — Completed Feature Highlight Campaigns</h4>
         <div class="bar-chart">
-          <div class="bc-row">
-            <div class="bc-label">SU Plays Like — Paid Push (5/7)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:100%;background:#3AB54A">+2.77pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+2.77pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Auto-Shot — Paid Push (5/7)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:10%;background:#1A6FA8">+0.28pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+0.28pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Plays Like — Free Push (5/7)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:10%;background:#E05252">-0.28pp</div></div>
-            <div class="bc-val" style="color:#E05252">-0.28pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Auto-Shot — Free Push (5/7)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:3.6%;background:#E05252">-0.10pp</div></div>
-            <div class="bc-val" style="color:#E05252">-0.10pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Golf Bag — Push iOS (5/28)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:28.5%;background:#3AB54A">+0.79pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+0.79pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Handicap — Push iOS (5/28)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:43%;background:#1A6FA8">+1.19pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+1.19pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">GS Handicap — Braze Email (5/28)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:20%;background:#5BA3D9">+0.55pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+0.55pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Shot Tracking — Push Android (6/11)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:52%;background:#3AB54A">+1.45pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+1.45pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Shot Tracking — Push iOS (6/11)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:14.8%;background:#7CC47F">+0.41pp</div></div>
-            <div class="bc-val" style="color:#1E7E34">+0.41pp</div>
-          </div>
-          <div class="bc-row">
-            <div class="bc-label">SU Shot Tracking — Braze Email (6/11)</div>
-            <div class="bc-bar-bg"><div class="bc-bar" style="width:4.3%;background:#E05252">-0.12pp</div></div>
-            <div class="bc-val" style="color:#E05252">-0.12pp</div>
-          </div>
+          <div class="bc-row"><div class="bc-label">SU Plays Like — Paid Push (5/7)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:100%;background:#3AB54A">+2.77pp</div></div><div class="bc-val" style="color:#1E7E34">+2.77pp</div></div>
+          <div class="bc-row"><div class="bc-label">GS Handicap — Push iOS (5/28)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:43%;background:#1A6FA8">+1.19pp</div></div><div class="bc-val" style="color:#1E7E34">+1.19pp</div></div>
+          <div class="bc-row"><div class="bc-label">SU Shot Tracking — Push Android (6/11)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:52%;background:#3AB54A">+1.45pp</div></div><div class="bc-val" style="color:#1E7E34">+1.45pp</div></div>
+          <div class="bc-row"><div class="bc-label">SU Golf Bag — Push iOS (5/28)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:28.5%;background:#3AB54A">+0.79pp</div></div><div class="bc-val" style="color:#1E7E34">+0.79pp</div></div>
+          <div class="bc-row"><div class="bc-label">GS Auto-Shot — Paid Push (5/7)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:10%;background:#1A6FA8">+0.28pp</div></div><div class="bc-val" style="color:#1E7E34">+0.28pp</div></div>
+          <div class="bc-row"><div class="bc-label">GS Handicap — Braze Email (5/28)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:20%;background:#5BA3D9">+0.55pp</div></div><div class="bc-val" style="color:#1E7E34">+0.55pp</div></div>
+          <div class="bc-row"><div class="bc-label">SU Shot Tracking — Push iOS (6/11)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:14.8%;background:#7CC47F">+0.41pp</div></div><div class="bc-val" style="color:#1E7E34">+0.41pp</div></div>
+          <div class="bc-row"><div class="bc-label">SU Plays Like — Free Push (5/7)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:10%;background:#E05252">-0.28pp</div></div><div class="bc-val" style="color:#E05252">-0.28pp</div></div>
+          <div class="bc-row"><div class="bc-label">GS Auto-Shot — Free Push (5/7)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:3.6%;background:#E05252">-0.10pp</div></div><div class="bc-val" style="color:#E05252">-0.10pp</div></div>
+          <div class="bc-row"><div class="bc-label">SU Shot Tracking — Braze Email (6/11)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:4.3%;background:#E05252">-0.12pp</div></div><div class="bc-val" style="color:#E05252">-0.12pp</div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="panel">
-    <div class="panel-hdr">All Campaigns — Feature Highlights <span class="badge blue">32 Total (incl. planned)</span></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th><th>Feature</th><th>App</th><th>Channel</th><th>Audience</th>
-          <th>Treat Rate</th><th>Ctrl Rate</th><th>Lift</th><th>Confidence</th><th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td colspan="10" class="section-label">✅ WEEK 1 — 5/7 — Plays Like/GRM (SU) + Auto-Shot Tracking (GS)</td></tr>
-        <tr>
-          <td>5/7/26</td><td>Plays Like / GRM</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push Paid</span></td><td>Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-pos">+2.77pp</td><td class="conf-win">98.4% ✅</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Plays Like / GRM</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push Free</span></td><td>Free Active</td>
-          <td>—</td><td>—</td><td class="lift-neg">-0.28pp</td><td class="conf-low">~30%</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Plays Like / GRM</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">Minimal</td><td class="lift-na">—</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Plays Like / GRM</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag cm">CM Email</span></td><td>All subscribers</td>
-          <td>—</td><td>—</td><td class="lift-na">No CG</td><td class="lift-na">—</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Auto-Shot Tracking</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag ios">Push Paid</span></td><td>Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-pos">+0.28pp</td><td class="conf-med">~65%</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Auto-Shot Tracking</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag ios">Push Free</span></td><td>Free Active</td>
-          <td>—</td><td>—</td><td class="lift-neg">-0.10pp</td><td class="conf-low">~20%</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Auto-Shot Tracking</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">Minimal</td><td class="lift-na">—</td><td>✅ Complete</td>
-        </tr>
-        <tr>
-          <td>5/7/26</td><td>Auto-Shot Tracking</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag cm">CM Email</span></td><td>All subscribers</td>
-          <td>—</td><td>—</td><td class="lift-na">No CG</td><td class="lift-na">—</td><td>✅ Complete</td>
-        </tr>
-        <tr><td colspan="10" class="section-label">✅ WEEK 2 — 5/28 — Golf Bag (SU) + Handicap (GS)</td></tr>
-        <tr>
-          <td>5/28/26</td><td>Golf Bag</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push iOS</span></td><td>Active 90d</td>
-          <td>26.63%</td><td>25.84% ctrl</td><td class="lift-pos">+0.79pp</td><td class="conf-win">99.21% ✅</td><td>✅ 28,880 sessions</td>
-        </tr>
-        <tr>
-          <td>5/28/26</td><td>Golf Bag</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">Minimal</td><td class="lift-na">—</td><td>✅ Email fail #2</td>
-        </tr>
-        <tr>
-          <td>5/28/26</td><td>Golf Bag</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag cm">CM Email</span></td><td>All subscribers</td>
-          <td>—</td><td>—</td><td class="lift-na">No CG</td><td class="lift-na">—</td><td>✅ 0.06% CTR</td>
-        </tr>
-        <tr>
-          <td>5/28/26</td><td>Handicap</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag ios">Push iOS</span></td><td>Active 90d US</td>
-          <td>28.91%</td><td>27.72% ctrl</td><td class="lift-pos">+1.19pp</td><td class="conf-win">98.84% ✅</td><td>✅ 26,259 sessions</td>
-        </tr>
-        <tr>
-          <td>5/28/26</td><td>Handicap</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>28.43%</td><td>27.88% ctrl</td><td class="lift-pos">+0.55pp</td><td class="conf-med">85.63%</td><td>✅ 40,867 sessions</td>
-        </tr>
-        <tr>
-          <td>5/28/26</td><td>Handicap</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag cm">CM Email</span></td><td>All subscribers</td>
-          <td>—</td><td>—</td><td class="lift-na">No CG</td><td class="lift-na">—</td><td>✅ 45.1% open rate</td>
-        </tr>
-        <tr><td colspan="10" class="section-label">✅ WEEK 3 — 6/11 — Shot Tracking (SU)</td></tr>
-        <tr>
-          <td>6/11/26</td><td>Shot Tracking</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag android">Push Android</span></td><td>Active 90d</td>
-          <td>30.93%</td><td>29.48% ctrl</td><td class="lift-pos">+1.45pp</td><td class="conf-med">89.84%</td><td>✅ 8,124 sessions</td>
-        </tr>
-        <tr>
-          <td>6/11/26</td><td>Shot Tracking</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push iOS</span></td><td>Active 90d</td>
-          <td>26.07%</td><td>25.66% ctrl</td><td class="lift-pos">+0.41pp</td><td class="conf-low">69.65%</td><td>✅ 33,013 sessions | 106 sub starts</td>
-        </tr>
-        <tr>
-          <td>6/11/26</td><td>Shot Tracking</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>26.98%</td><td>27.10% ctrl</td><td class="lift-neg">-0.12pp</td><td class="conf-low">34.70%</td><td>🔴 SU email 0-for-3</td>
-        </tr>
-        <tr><td colspan="10" class="section-label">⏳ FATHER'S DAY — 6/18–6/20 — DATA PENDING</td></tr>
-        <tr>
-          <td>6/18/26</td><td>Father's Day</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Closes 6/21</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/20/26</td><td>Father's Day</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push — iOS</span></td><td>Free + Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Closes 6/23</td><td>⏳ Pending</td>
-        </tr>
-        <tr>
-          <td>6/20/26</td><td>Father's Day</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag android">Push — Android</span></td><td>Free + Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Closes 6/23</td><td>⏳ Pending</td>
-        </tr>
-        <tr><td colspan="10" class="section-label">📅 PLANNED — Week of 6/26 — Touch-Screen Distances (SU) + Watch-Only (GS)</td></tr>
-        <tr>
-          <td>6/26/26</td><td>Touch-Screen Distances</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Planned</td><td>📅 Build this week</td>
-        </tr>
-        <tr>
-          <td>6/26/26</td><td>Watch-Only Experience</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag email">Braze Email</span></td><td>Active 90d</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Planned</td><td>📅 Build this week</td>
-        </tr>
-        <tr>
-          <td>6/28/26</td><td>Touch-Screen Distances</td><td><span class="tag su">SU</span></td>
-          <td><span class="tag ios">Push iOS</span></td><td>Free + Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Planned</td><td>📅 Build this week</td>
-        </tr>
-        <tr>
-          <td>6/28/26</td><td>Watch-Only Experience</td><td><span class="tag gs">GS</span></td>
-          <td><span class="tag ios">Push iOS</span></td><td>Free + Paid Active</td>
-          <td>—</td><td>—</td><td class="lift-na">—</td><td class="conf-pend">Planned</td><td>📅 Build this week</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
 
 <script>
-function showTab(t){
+// ── Campaign data ─────────────────────────────────────────
+const campaigns = [
+  {date:"6/8/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:19284,rate:"39.52%",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"Pre-program",confClass:"conf-pend",convB:"8,661 round saved",status:"📊 Baseline"},
+  {date:"6/5/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2714,rate:"3.71%",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"Pre-program",confClass:"conf-pend",convB:"1,573 course selected",status:"📊 Baseline"},
+  {date:"6/5/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:4461,rate:"1.39%",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"Pre-program",confClass:"conf-pend",convB:"721 facility selected",status:"📊 Baseline"},
+  {date:"6/8/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2819,rate:"0.88%",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"Pre-program",confClass:"conf-pend",convB:"423 facility selected",status:"📊 Baseline"},
+  {date:"6/15/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2685,rate:"2.57%",ctrl:"1.98%",lift:"+0.59pp",liftClass:"lift-pos",conf:"100% ✅",confClass:"conf-win",convB:"266 course explore",status:"✅ Complete"},
+  {date:"6/15/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:382,rate:"3.56%",ctrl:"3.72%",lift:"-0.16pp",liftClass:"lift-neg",conf:"22%",confClass:"conf-low",convB:"36 course explore",status:"✅ Complete"},
+  {date:"6/17/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:4085,rate:"1.27%",ctrl:"1.15%",lift:"+0.12pp",liftClass:"lift-pos",conf:"96.14% ✅",confClass:"conf-win",convB:"1,617 round started",status:"✅ Complete"},
+  {date:"6/17/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:54,rate:"0.56%",ctrl:"0.57%",lift:"-0.01pp",liftClass:"lift-neg",conf:"1.89%",confClass:"conf-low",convB:"26 round started",status:"✅ Complete"},
+  {date:"6/19/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:3609,rate:"3.38%",ctrl:"2.87%",lift:"+0.51pp",liftClass:"lift-pos",conf:"99.83% ✅",confClass:"conf-win",convB:"448 course explore",status:"✅ Complete"},
+  {date:"6/19/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:573,rate:"5.15%",ctrl:"4.67%",lift:"+0.48pp",liftClass:"lift-pos",conf:"54.91%",confClass:"conf-low",convB:"65 course explore",status:"✅ Complete"},
+  {date:"6/19/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:4371,rate:"1.36%",ctrl:"1.12%",lift:"+0.24pp",liftClass:"lift-pos",conf:"100% ✅",confClass:"conf-win",convB:"819 facility selected",status:"✅ Complete"},
+  {date:"6/19/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:35,rate:"0.37%",ctrl:"0.09%",lift:"+0.28pp",liftClass:"lift-pos",conf:"59.45%",confClass:"conf-low",convB:"15 round setup",status:"✅ Complete"},
+  {date:"6/20/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/23",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/20/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/23",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/22/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/22/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/22/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/22/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/24/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+];
+
+// ── Chart data (sessions + rates) per prong ───────────────
+const allSessionBars = [
+  {label:"SU Active Recap 6/8",val:19284,pct:100,color:"#3AB54A",prong:"active",app:"su"},
+  {label:"GS Pre-Round 6/5",val:4461,pct:23,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS iOS Zombie 6/17",val:4085,pct:21,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS iOS Pre-Round 6/19",val:4371,pct:22.7,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS Inactive Recap 6/8",val:2819,pct:14.6,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"SU iOS Zombie 6/15",val:2685,pct:13.9,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"SU Pre-Round 6/5",val:2714,pct:14.1,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"SU iOS Pre-Round 6/19",val:3609,pct:18.7,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"SU Android Zombie 6/15",val:382,pct:2,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"SU Android Pre-Round 6/19",val:573,pct:3,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"GS Android Zombie 6/17",val:54,pct:0.3,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS Android Pre-Round 6/19",val:35,pct:0.2,color:"#1A6FA8",prong:"zombie",app:"gs"},
+];
+
+const allRateBars = [
+  {label:"SU Active Users (6/8)",val:"39.52%",pct:100,color:"#3AB54A",prong:"active",app:"su"},
+  {label:"SU Android Pre-Round (6/19)",val:"5.15%",pct:13,color:"#7CC47F",prong:"zombie",app:"su"},
+  {label:"SU Android Zombie (6/15)",val:"3.56%",pct:9,color:"#7CC47F",prong:"zombie",app:"su"},
+  {label:"SU iOS Pre-Round (6/19)",val:"3.38%",pct:8.6,color:"#7CC47F",prong:"zombie",app:"su"},
+  {label:"SU Pre-Round Prep (6/5)",val:"3.71%",pct:9.4,color:"#7CC47F",prong:"zombie",app:"su"},
+  {label:"SU iOS Zombie (6/15)",val:"2.57%",pct:6.5,color:"#7CC47F",prong:"zombie",app:"su"},
+  {label:"GS Pre-Round Prep (6/5)",val:"1.39%",pct:3.5,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS iOS Pre-Round (6/19)",val:"1.36%",pct:3.4,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS iOS Zombie (6/17)",val:"1.27%",pct:3.2,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS Inactive Recap (6/8)",val:"0.88%",pct:2.2,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS Android Pre-Round (6/19)",val:"0.37%",pct:0.9,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS Android Zombie (6/17)",val:"0.56%",pct:1.4,color:"#5BA3D9",prong:"zombie",app:"gs"},
+  {label:"GS Android Pre-Round (6/19)",val:"0.37%",pct:0.9,color:"#5BA3D9",prong:"zombie",app:"gs"},
+];
+
+let currentFilter = 'all';
+
+function matchesFilter(c, filter) {
+  if(filter === 'all') return true;
+  if(filter === 'zombie') return c.prong === 'zombie';
+  if(filter === 'active') return c.prong === 'active';
+  if(filter === 'su') return c.app === 'SU';
+  if(filter === 'gs') return c.app === 'GS';
+  return true;
+}
+
+function matchesFilterBar(b, filter) {
+  if(filter === 'all') return true;
+  if(filter === 'zombie') return b.prong === 'zombie';
+  if(filter === 'active') return b.prong === 'active';
+  if(filter === 'su') return b.app === 'su';
+  if(filter === 'gs') return b.app === 'gs';
+  return true;
+}
+
+function setFilter(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+function renderAll() {
+  renderTable();
+  renderCharts();
+  renderKPIs();
+}
+
+function renderKPIs() {
+  const filtered = campaigns.filter(c => matchesFilter(c, currentFilter) && c.sessions);
+  const totalSessions = filtered.reduce((s,c) => s + (c.sessions||0), 0);
+  const totalCampaigns = campaigns.filter(c => matchesFilter(c, currentFilter)).length;
+  document.getElementById('kpi-sessions-val').textContent = totalSessions.toLocaleString();
+  document.getElementById('kpi-sessions-sub').textContent = currentFilter === 'all' ? 'All campaigns' : 'Filtered campaigns';
+  document.getElementById('kpi-campaigns-val').textContent = totalCampaigns;
+}
+
+function renderTable() {
+  const tbody = document.getElementById('campaign-tbody');
+  const filtered = campaigns.filter(c => matchesFilter(c, currentFilter));
+  let html = '';
+  let lastStatus = '';
+
+  filtered.forEach(c => {
+    const statusGroup = c.status.includes('Complete') ? 'complete' :
+                        c.status.includes('Baseline') ? 'baseline' :
+                        c.status.includes('Pending') ? 'pending' : 'planned';
+    if(statusGroup !== lastStatus) {
+      const labels = {complete:'✅ Complete — Data In', baseline:'📊 Pre-Program (No Control Groups)', pending:'⏳ Pending', planned:'📅 Planned'};
+      html += `<tr><td colspan="11" class="section-label">${labels[statusGroup]}</td></tr>`;
+      lastStatus = statusGroup;
+    }
+    const pTag = c.prong === 'zombie' ?
+      `<span class="tag zombie">Zombie</span>` :
+      `<span class="tag active-ret">Active</span>`;
+    const appTag = `<span class="tag ${c.app.toLowerCase()}">${c.app}</span>`;
+    const platTag = `<span class="tag ${c.platform.toLowerCase()}">${c.platform}</span>`;
+    const sessVal = c.sessions ? `<strong>${c.sessions.toLocaleString()}</strong>` : '—';
+    html += `<tr>
+      <td>${c.date}</td><td>${appTag}</td><td>${platTag}</td><td>${pTag}</td>
+      <td>${sessVal}</td><td>${c.rate}</td><td>${c.ctrl}</td>
+      <td class="${c.liftClass}">${c.lift}</td>
+      <td class="${c.confClass}">${c.conf}</td>
+      <td>${c.convB}</td><td>${c.status}</td>
+    </tr>`;
+  });
+
+  tbody.innerHTML = html;
+  document.getElementById('table-count').textContent = filtered.length + ' campaigns';
+}
+
+function renderCharts() {
+  const sBars = allSessionBars.filter(b => matchesFilterBar(b, currentFilter));
+  const rBars = allRateBars.filter(b => matchesFilterBar(b, currentFilter));
+
+  // Recalculate max for scaling
+  const maxS = Math.max(...sBars.map(b=>b.val));
+  const sHTML = sBars.sort((a,b)=>b.val-a.val).map(b =>
+    `<div class="bc-row"><div class="bc-label">${b.label}</div><div class="bc-bar-bg"><div class="bc-bar" style="width:${(b.val/maxS*100).toFixed(1)}%;background:${b.color}">${b.val.toLocaleString()}</div></div><div class="bc-val">${b.val.toLocaleString()}</div></div>`
+  ).join('');
+
+  const seen = new Set();
+  const uniqueR = rBars.filter(b => { if(seen.has(b.label)) return false; seen.add(b.label); return true; });
+  const maxR = Math.max(...uniqueR.map(b=>b.pct));
+  const rHTML = uniqueR.sort((a,b)=>b.pct-a.pct).map(b =>
+    `<div class="bc-row"><div class="bc-label">${b.label}</div><div class="bc-bar-bg"><div class="bc-bar" style="width:${(b.pct/maxR*100).toFixed(1)}%;background:${b.color}">${b.val}</div></div><div class="bc-val">${b.val}</div></div>`
+  ).join('');
+
+  document.getElementById('sessions-bars').innerHTML = sHTML || '<p style="color:#aaa;font-size:11px;padding:8px">No data for this filter</p>';
+  document.getElementById('rate-bars').innerHTML = rHTML || '<p style="color:#aaa;font-size:11px;padding:8px">No data for this filter</p>';
+}
+
+function showTab(t, e) {
   document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
   document.querySelectorAll('[id^="tab-"]').forEach(el=>el.classList.add('hidden'));
   document.getElementById('tab-'+t).classList.remove('hidden');
-  event.target.classList.add('active');
+  e.target.classList.add('active');
 }
+
+renderAll();
 </script>
 </body>
 </html>
