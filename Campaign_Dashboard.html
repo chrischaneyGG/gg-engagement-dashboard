@@ -94,8 +94,8 @@
   <!-- Filter bar -->
   <div class="filter-bar">
     <span>Filter:</span>
-    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-    <button class="filter-btn zombie" onclick="setFilter('zombie',this)">Zombie Re-Engagement</button>
+    <button class="filter-btn" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn zombie active" onclick="setFilter('zombie',this)">Zombie Re-Engagement</button>
     <button class="filter-btn active-ret" onclick="setFilter('active',this)">Active Retention</button>
     <button class="filter-btn su" onclick="setFilter('su',this)">SwingU</button>
     <button class="filter-btn gs" onclick="setFilter('gs',this)">Golfshot</button>
@@ -260,7 +260,7 @@ const allRateBars = [
   {label:"GS Android Pre-Round (6/19)",val:"0.37%",pct:0.9,color:"#5BA3D9",prong:"zombie",app:"gs"},
 ];
 
-let currentFilter = 'all';
+let currentFilter = 'zombie';
 
 function matchesFilter(c, filter) {
   if(filter === 'all') return true;
