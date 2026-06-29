@@ -80,7 +80,7 @@
 
 <div class="top-bar">
   <h1>⛳ Golf Genius — Engagement Program Dashboard</h1>
-  <span>SwingU + Golfshot &nbsp;|&nbsp; Updated June 24, 2026</span>
+  <span>SwingU + Golfshot &nbsp;|&nbsp; Updated June 29, 2026</span>
 </div>
 
 <div class="tab-row">
@@ -105,12 +105,12 @@
   <div class="kpi-row">
     <div class="kpi kpi-dynamic" id="kpi-sessions">
       <label>Total Sessions Driven</label>
-      <div class="val" id="kpi-sessions-val">42,307</div>
+      <div class="val" id="kpi-sessions-val">125,302</div>
       <div class="sub" id="kpi-sessions-sub">All re-engagement campaigns</div>
     </div>
     <div class="kpi blue kpi-dynamic" id="kpi-campaigns">
       <label>Campaigns Launched</label>
-      <div class="val" id="kpi-campaigns-val">22</div>
+      <div class="val" id="kpi-campaigns-val">33</div>
       <div class="sub">SU + GS, push only</div>
     </div>
     <div class="kpi kpi-dynamic">
@@ -125,8 +125,8 @@
     </div>
     <div class="kpi amber">
       <label>Pending Data Pulls</label>
-      <div class="val">6</div>
-      <div class="sub">Windows closing 6/24–6/25</div>
+      <div class="val">4</div>
+      <div class="sub">Feature Highlight push — closes 6/30</div>
     </div>
   </div>
 
@@ -219,16 +219,28 @@ const campaigns = [
   {date:"6/19/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:35,rate:"0.37%",ctrl:"0.09%",lift:"+0.28pp",liftClass:"lift-pos",conf:"59.45%",confClass:"conf-low",convB:"15 round setup",status:"✅ Complete"},
   {date:"6/20/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/23",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
   {date:"6/20/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/23",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
-  {date:"6/22/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
-  {date:"6/22/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
-  {date:"6/22/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
-  {date:"6/22/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/25",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/22/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2498,rate:"2.33%",ctrl:"1.92%",lift:"+0.41pp",liftClass:"lift-pos",conf:"99.75% ✅",confClass:"conf-win",convB:"874 round started",status:"✅ Complete"},
+  {date:"6/22/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:430,rate:"3.81%",ctrl:"3.38%",lift:"+0.43pp",liftClass:"lift-pos",conf:"57.05%",confClass:"conf-low",convB:"169 round started",status:"✅ Complete"},
+  {date:"6/22/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2943,rate:"0.92%",ctrl:"0.76%",lift:"+0.16pp",liftClass:"lift-pos",conf:"99.91% ✅",confClass:"conf-win",convB:"941 round started",status:"✅ Complete"},
+  {date:"6/22/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:24,rate:"0.25%",ctrl:"0.40%",lift:"-0.15pp",liftClass:"lift-neg",conf:"52.49%",confClass:"conf-low",convB:"12 round started",status:"✅ Complete"},
   {date:"6/24/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
   {date:"6/24/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
   {date:"6/24/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
   {date:"6/24/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
   {date:"6/24/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
-  {date:"6/24/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/27",confClass:"conf-pend",convB:"—",status:"📅 Planned"},
+  {date:"6/24/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:36,rate:"0.38%",ctrl:"0.37%",lift:"+0.01pp",liftClass:"lift-pos",conf:"2.90%",confClass:"conf-low",convB:"16 round started",status:"✅ Complete"},
+  {date:"6/24/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:32449,rate:"26.00%",ctrl:"25.92%",lift:"+0.08pp",liftClass:"lift-pos",conf:"31.85%",confClass:"conf-low",convB:"23,297 round started",status:"✅ Complete"},
+  {date:"6/24/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:8041,rate:"29.95%",ctrl:"29.25%",lift:"+0.70pp",liftClass:"lift-pos",conf:"57.60%",confClass:"conf-low",convB:"5,444 round started",status:"✅ Complete"},
+  {date:"6/24/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:2972,rate:"2.73%",ctrl:"2.41%",lift:"+0.32pp",liftClass:"lift-pos",conf:"97.26% ✅",confClass:"conf-win",convB:"1,214 round started",status:"✅ Complete"},
+  {date:"6/24/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:427,rate:"3.67%",ctrl:"4.77%",lift:"-1.10pp",liftClass:"lift-neg",conf:"92.15%",confClass:"conf-low",convB:"213 round started",status:"✅ Complete"},
+  {date:"6/26/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Active Retention",sessions:66364,rate:"27.04%",ctrl:"26.55%",lift:"+0.49pp",liftClass:"lift-pos",conf:"82.70%",confClass:"conf-low",convB:"48,891 round started",status:"✅ Complete"},
+  {date:"6/26/26",app:"GS",platform:"Android",prong:"active",prongLabel:"Active Retention",sessions:722,rate:"21.79%",ctrl:"23.99%",lift:"-2.20pp",liftClass:"lift-neg",conf:"64.02%",confClass:"conf-low",convB:"483 round started",status:"✅ Complete"},
+  {date:"6/26/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:3232,rate:"1.01%",ctrl:"1.02%",lift:"-0.01pp",liftClass:"lift-neg",conf:"0.77%",confClass:"conf-low",convB:"1,957 round started",status:"✅ Complete"},
+  {date:"6/26/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:47,rate:"0.50%",ctrl:"0.27%",lift:"+0.23pp",liftClass:"lift-pos",conf:"79.78%",confClass:"conf-low",convB:"22 round started",status:"✅ Complete"},
+  {date:"6/27/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/30",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/27/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/30",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/27/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/30",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
+  {date:"6/27/26",app:"GS",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:null,rate:"—",ctrl:"—",lift:"—",liftClass:"lift-na",conf:"Closes 6/30",confClass:"conf-pend",convB:"—",status:"⏳ Pending"},
 ];
 
 // ── Chart data (sessions + rates) per prong ───────────────
