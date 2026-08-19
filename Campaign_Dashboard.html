@@ -80,7 +80,7 @@
 
 <div class="top-bar">
   <h1>⛳ Golf Genius — Engagement Program Dashboard</h1>
-  <span>SwingU + Golfshot &nbsp;|&nbsp; Updated August 10, 2026</span>
+  <span>SwingU + Golfshot &nbsp;|&nbsp; Updated August 18, 2026</span>
 </div>
 
 <div class="tab-row">
@@ -125,8 +125,8 @@
     </div>
     <div class="kpi amber">
       <label>Pending Data Pulls</label>
-      <div class="val">2</div>
-      <div class="sub">Confidence % not captured — Green Reading Maps Android push + Move To Live GS iOS push. Recheck Braze 8/11.</div>
+      <div class="val">0</div>
+      <div class="sub">Fully caught up through 8/15 sends. Green Reading Maps Android + Move To Live GS iOS confidence values resolved 8/18 (both closed).</div>
     </div>
   </div>
 
@@ -179,8 +179,11 @@
     <div class="finding amber"><h4>⚠️ Push Key Events Inconsistent Across Platforms</h4><p>Recurring pattern: on 7/5 Social Sharing push, planned events didn't match what was configured. On 7/18 Lance Gill push, iOS tracked all 3 events (homepage/details/sub) but Android was missing drills_homepage_loaded entirely. Worth a pre-launch checklist to confirm event parity across iOS/Android before each push.</p></div>
     <div class="finding blue"><h4>🏆 Strokes Gained (APT) GS iOS Push — Clean Win</h4><p>99.92% confidence, +0.80pp lift, 63,397 sessions (8/1). Android (AST) counterpart missed on a small sample (+1.22pp, 45.65% confidence).</p></div>
     <div class="finding red"><h4>🔴 Clubhouse Feed — 0-for-4</h4><p>Missed on every channel tested: Braze email (71.34% conf), CM email (strong 59.96% open, negligible clicks), iOS push (49.70%, negative lift), Android push (26.60%). Worth reconsidering the angle — currently generic feature-promo style rather than a content/story hook.</p></div>
-    <div class="finding red"><h4>🔴 Green Reading Maps — 0-for-4</h4><p>Same pattern as Clubhouse Feed: Braze email (67.36% conf), CM email (59.04% open, low clicks), iOS push (67.85%, negative lift), Android push (pending confidence recheck, but flat +0.11pp). Trial-CTA tier-split mechanic hasn't produced a session win anywhere yet for this feature.</p></div>
+    <div class="finding red"><h4>🔴 Green Reading Maps — 0-for-4 (confirmed)</h4><p>Braze email (67.36% conf), CM email (59.04% open, low clicks), iOS push (67.85%, negative lift), Android push (confirmed 8/18: 49.50%, no win). Trial-CTA tier-split mechanic never produced a session win for this feature across any channel.</p></div>
     <div class="finding amber"><h4>⚠️ GS Conversion Event Drift</h4><p>Multiple 7/30–8/8 GS sends fired different conversion events than configured/expected — Round_Setup_Started, Round_Setup_Round_Options_Viewed, and Statistics_Category_Selected showed up in place of the documented Facility_List_Viewed / stats_viewed. Flagged across 5+ rows this cycle — worth a batch conversation with Kyle/MaryBeth on whether GS event mapping has drifted from the documented standard.</p></div>
+    <div class="finding blue"><h4>🏆 Strokes Gained Adoption — Paid 2-for-2, Free 0-for-2</h4><p>8/15 push split by subscription status, not platform: paid users asked to flip a Scorecard Type setting, free users asked to start a trial. Paid won cleanly on both iOS (99.69%, +2.81pp) and Android (99.76%, +6.02pp — largest lift of the cycle). Free missed both (iOS 7.69% flat, Android 94.83% close). Clean signal that low-friction "turn it on" asks convert far better than trial-start asks for existing paid features.</p></div>
+    <div class="finding amber"><h4>⚠️ GS Round Stories Debut — 1-for-4</h4><p>New round-review feature closed its first cycle with only iOS push winning (100%, 60,475 sessions). iOS email came close (94.46%) but Android missed on both channels (email 13.11%, push 74.99%, negative lift). Android's version also structurally lacks putting data (AST limitation) — compounding the usual iOS/Android reach gap with a real feature-completeness gap.</p></div>
+    <div class="finding green"><h4>✅ SU Pre-Round Prep Debut — Clean Win</h4><p>Tested on SU zombies for the first time ever (8/12) after being GS-exclusive all program — won cleanly on iOS (98.86%, +0.31pp) with a close Android result (93.20%). Worth adding to the regular SU zombie rotation, not just tour-moment VOD. Same cycle produced GS Pre-Round Prep's first-ever miss (Android, 87.44%, negative) after 95-100% confidence on every prior test — one data point, watch next cycle.</p></div>
   </div>
   <div class="panel">
     <div class="panel-hdr">Lift by Channel — Feature Highlights <span class="badge">Treatment vs Control</span></div>
@@ -211,13 +214,13 @@
           <div class="bc-row"><div class="bc-label">GS Strokes Gained (APT) — Push iOS (8/1)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:29%;background:#1A6FA8">+0.80pp</div></div><div class="bc-val" style="color:#1E7E34">99.92% ✅</div></div>
           <div class="bc-row"><div class="bc-label">SU Clubhouse Feed — Braze Email (7/30)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:81%;background:#7CC47F">+2.28pp</div></div><div class="bc-val" style="color:#4A6274">71.34%</div></div>
           <div class="bc-row"><div class="bc-label">GS Strokes Gained (AST) — Push Android (8/1)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:44%;background:#5BA3D9">+1.22pp</div></div><div class="bc-val" style="color:#4A6274">45.65%</div></div>
-          <div class="bc-row"><div class="bc-label">GS Move To Live — Push iOS (8/8)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:26%;background:#5BA3D9">+0.74pp</div></div><div class="bc-val" style="color:#4A6274">pending</div></div>
+          <div class="bc-row"><div class="bc-label">GS Move To Live — Push iOS (8/8)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:26%;background:#1A6FA8">+0.69pp</div></div><div class="bc-val" style="color:#1E7E34">98.92% ✅</div></div>
           <div class="bc-row"><div class="bc-label">SU CoachNow — Push Android (7/25)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:26%;background:#7CC47F">+0.74pp</div></div><div class="bc-val" style="color:#4A6274">61.28%</div></div>
           <div class="bc-row"><div class="bc-label">SU Clubhouse Feed — Push Android (8/1)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:15%;background:#7CC47F">+0.41pp</div></div><div class="bc-val" style="color:#4A6274">26.60%</div></div>
           <div class="bc-row"><div class="bc-label">GS Move To Live — Braze Email Android (8/6)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:11%;background:#5BA3D9">+0.32pp</div></div><div class="bc-val" style="color:#4A6274">13.63%</div></div>
           <div class="bc-row"><div class="bc-label">SU Green Reading Maps — Braze Email (8/6)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:9%;background:#7CC47F">+0.26pp</div></div><div class="bc-val" style="color:#4A6274">67.36%</div></div>
           <div class="bc-row"><div class="bc-label">GS Strokes Gained (APT) — Braze Email iOS (7/30)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:9%;background:#5BA3D9">+0.25pp</div></div><div class="bc-val" style="color:#4A6274">68.32%</div></div>
-          <div class="bc-row"><div class="bc-label">SU Green Reading Maps — Push Android (8/8)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:4%;background:#7CC47F">+0.11pp</div></div><div class="bc-val" style="color:#4A6274">pending</div></div>
+          <div class="bc-row"><div class="bc-label">SU Green Reading Maps — Push Android (8/8)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:4%;background:#7CC47F">+0.11pp</div></div><div class="bc-val" style="color:#4A6274">49.50%</div></div>
           <div class="bc-row"><div class="bc-label">GS Move To Live — Push Android (8/8)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:0.4%;background:#5BA3D9">+0.01pp</div></div><div class="bc-val" style="color:#4A6274">12.17%</div></div>
           <div class="bc-row"><div class="bc-label">GS Move To Live — Braze Email iOS (8/6)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:1.4%;background:#E05252">-0.04pp</div></div><div class="bc-val" style="color:#E05252">20.16%</div></div>
           <div class="bc-row"><div class="bc-label">SU CoachNow — Braze Email (7/23)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:2.5%;background:#E05252">-0.07pp</div></div><div class="bc-val" style="color:#E05252">21.29%</div></div>
@@ -231,6 +234,15 @@
           <div class="bc-row"><div class="bc-label">SU Touch-Screen Distances — Push iOS (6/27)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:25%;background:#7CC47F">+0.70pp</div></div><div class="bc-val" style="color:#4A6274">93.16%</div></div>
           <div class="bc-row"><div class="bc-label">SU Touch-Screen Distances — Braze Email (6/25)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:10%;background:#7CC47F">+0.29pp</div></div><div class="bc-val" style="color:#4A6274">72.61%</div></div>
           <div class="bc-row"><div class="bc-label">GS Watch-Only — Braze Email (6/26)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:46%;background:#E05252">-1.29pp</div></div><div class="bc-val" style="color:#E05252">39.47% (small sample)</div></div>
+          <div class="bc-row"><div class="bc-label">SU Strokes Gained — Push Paid Android (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:100%;background:#3AB54A">+6.02pp</div></div><div class="bc-val" style="color:#1E7E34">99.76% ✅</div></div>
+          <div class="bc-row"><div class="bc-label">SU Strokes Gained — Push Paid iOS (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:47%;background:#3AB54A">+2.81pp</div></div><div class="bc-val" style="color:#1E7E34">99.69% ✅</div></div>
+          <div class="bc-row"><div class="bc-label">GS Round Stories (APT) — Push iOS (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:20%;background:#1A6FA8">+1.20pp</div></div><div class="bc-val" style="color:#1E7E34">100% ✅</div></div>
+          <div class="bc-row"><div class="bc-label">SU Strokes Gained — Push Free Android (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:33%;background:#7CC47F">+2.00pp</div></div><div class="bc-val" style="color:#4A6274">94.83%</div></div>
+          <div class="bc-row"><div class="bc-label">GS Round Stories (APT) — Braze Email iOS (8/13)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:5%;background:#5BA3D9">+0.31pp</div></div><div class="bc-val" style="color:#4A6274">94.46%</div></div>
+          <div class="bc-row"><div class="bc-label">SU Strokes Gained — Push Free iOS (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:0.8%;background:#7CC47F">+0.05pp</div></div><div class="bc-val" style="color:#4A6274">7.69%</div></div>
+          <div class="bc-row"><div class="bc-label">SU Strokes Gained — Braze Email (8/13)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:5.5%;background:#E05252">-0.33pp</div></div><div class="bc-val" style="color:#E05252">80.15%</div></div>
+          <div class="bc-row"><div class="bc-label">GS Round Stories (AST) — Braze Email Android (8/13)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:5%;background:#E05252">-0.31pp</div></div><div class="bc-val" style="color:#E05252">13.11%</div></div>
+          <div class="bc-row"><div class="bc-label">GS Round Stories (AST) — Push Android (8/15)</div><div class="bc-bar-bg"><div class="bc-bar" style="width:43%;background:#E05252">-2.60pp</div></div><div class="bc-val" style="color:#E05252">74.99%</div></div>
         </div>
       </div>
     </div>
@@ -312,12 +324,28 @@ const campaigns = [
   {date:"8/7/26",app:"SU",platform:"Firebase",prong:"zombie",prongLabel:"Zombie + Active Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"1,651 opens (0.11%)",confClass:"conf-pend",convB:"33 Free Videos — key events: 0",status:"✅ Complete (Opens Only)"},
   {date:"8/7/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:77930,rate:"4.81%",ctrl:"4.66%",lift:"+0.15pp",liftClass:"lift-pos",conf:"100% ✅",confClass:"conf-win",convB:"55,311 round started (Move To Live)",status:"✅ Complete"},
   {date:"8/7/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:97,rate:"0.36%",ctrl:"0.41%",lift:"-0.05pp",liftClass:"lift-neg",conf:"30.27%",confClass:"conf-low",convB:"56 round started (Move To Live)",status:"✅ Complete"},
-  {date:"8/6/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:52940,rate:"21.05%",ctrl:"20.31%",lift:"+0.74pp",liftClass:"lift-pos",conf:"pending recheck",confClass:"conf-pend",convB:"Move To Live GS push — 38,740 round started",status:"✅ Complete"},
+  {date:"8/6/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:63006,rate:"25.05%",ctrl:"24.36%",lift:"+0.69pp",liftClass:"lift-pos",conf:"98.92% ✅",confClass:"conf-win",convB:"Move To Live GS push — 48,285 round started",status:"✅ Complete"},
   {date:"8/8/26",app:"GS",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:614,rate:"20.01%",ctrl:"20.00%",lift:"+0.01pp",liftClass:"lift-pos",conf:"12.17%",confClass:"conf-low",convB:"Move To Live GS push",status:"✅ Complete"},
   {date:"8/8/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:29132,rate:"22.59%",ctrl:"23.20%",lift:"-0.61pp",liftClass:"lift-neg",conf:"67.85%",confClass:"conf-low",convB:"Green Reading Maps push",status:"✅ Complete"},
-  {date:"8/8/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:6585,rate:"23.67%",ctrl:"23.56%",lift:"+0.11pp",liftClass:"lift-pos",conf:"pending recheck",confClass:"conf-pend",convB:"Green Reading Maps push",status:"✅ Complete"},
+  {date:"8/8/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:6585,rate:"23.67%",ctrl:"23.56%",lift:"+0.11pp",liftClass:"lift-pos",conf:"49.50%",confClass:"conf-low",convB:"Green Reading Maps push",status:"✅ Complete"},
   {date:"8/8/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement (90+ Day)",sessions:29249,rate:"22.71%",ctrl:"22.69%",lift:"+0.02pp",liftClass:"lift-pos",conf:"16.36%",confClass:"conf-low",convB:"30,670 round started",status:"✅ Complete"},
   {date:"8/8/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement (90+ Day)",sessions:6405,rate:"22.72%",ctrl:"22.96%",lift:"-0.24pp",liftClass:"lift-neg",conf:"pending recheck",confClass:"conf-pend",convB:"4,232 round started",status:"✅ Complete"},
+  {date:"8/12/26",app:"SU",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:3240,rate:"2.41%",ctrl:"2.10%",lift:"+0.31pp",liftClass:"lift-pos",conf:"98.86% ✅",confClass:"conf-win",convB:"Pre-Round Prep — first-ever SU test",status:"✅ Complete"},
+  {date:"8/12/26",app:"SU",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:558,rate:"3.50%",ctrl:"2.75%",lift:"+0.75pp",liftClass:"lift-pos",conf:"93.20%",confClass:"conf-low",convB:"Pre-Round Prep — first-ever SU test",status:"✅ Complete"},
+  {date:"8/12/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:3596,rate:"1.11%",ctrl:"0.99%",lift:"+0.12pp",liftClass:"lift-pos",conf:"97.05% ✅",confClass:"conf-win",convB:"Pre-Round Prep (recycled)",status:"✅ Complete"},
+  {date:"8/12/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:19,rate:"0.21%",ctrl:"0.58%",lift:"-0.37pp",liftClass:"lift-neg",conf:"87.44%",confClass:"conf-low",convB:"Pre-Round Prep — first-ever miss on GS",status:"✅ Complete"},
+  {date:"8/13/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:74256,rate:"26.51%",ctrl:"26.84%",lift:"-0.33pp",liftClass:"lift-neg",conf:"80.15%",confClass:"conf-low",convB:"Strokes Gained adoption email (mixed tier)",status:"✅ Complete"},
+  {date:"8/13/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:92707,rate:"16.92%",ctrl:"16.61%",lift:"+0.31pp",liftClass:"lift-pos",conf:"94.46%",confClass:"conf-low",convB:"Round Stories (APT) email",status:"✅ Complete"},
+  {date:"8/13/26",app:"GS",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:1523,rate:"26.00%",ctrl:"26.31%",lift:"-0.31pp",liftClass:"lift-neg",conf:"13.11%",confClass:"conf-low",convB:"Round Stories (AST) email",status:"✅ Complete"},
+  {date:"8/14/26",app:"GS",platform:"iOS",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:3302,rate:"1.02%",ctrl:"0.74%",lift:"+0.28pp",liftClass:"lift-pos",conf:"100% ✅",confClass:"conf-win",convB:"Auto Putt Tracking — resumed after 1mo overdue",status:"✅ Complete"},
+  {date:"8/14/26",app:"GS",platform:"Android",prong:"zombie",prongLabel:"Zombie Re-Engagement",sessions:27,rate:"0.30%",ctrl:"0.40%",lift:"-0.10pp",liftClass:"lift-neg",conf:"36.58%",confClass:"conf-low",convB:"Auto Shot Tracking",status:"✅ Complete"},
+  {date:"8/14/26",app:"SU",platform:"Firebase",prong:"zombie",prongLabel:"Zombie + Active Re-Engagement",sessions:null,rate:"—",ctrl:"—",lift:"No CG",liftClass:"lift-na",conf:"1,698 opens (0.11%)",confClass:"conf-pend",convB:"Get Your Bag Ready — key events: 0",status:"✅ Complete (Opens Only)"},
+  {date:"8/15/26",app:"GS",platform:"iOS",prong:"active",prongLabel:"Feature Highlight",sessions:60475,rate:"24.16%",ctrl:"22.96%",lift:"+1.20pp",liftClass:"lift-pos",conf:"100% ✅",confClass:"conf-win",convB:"Round Stories (APT) push",status:"✅ Complete"},
+  {date:"8/15/26",app:"GS",platform:"Android",prong:"active",prongLabel:"Feature Highlight",sessions:644,rate:"21.67%",ctrl:"24.27%",lift:"-2.60pp",liftClass:"lift-neg",conf:"74.99%",confClass:"conf-low",convB:"Round Stories (AST) push",status:"✅ Complete"},
+  {date:"8/15/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Feature Highlight (Paid)",sessions:9768,rate:"37.84%",ctrl:"35.03%",lift:"+2.81pp",liftClass:"lift-pos",conf:"99.69% ✅",confClass:"conf-win",convB:"Strokes Gained — settings-toggle ask",status:"✅ Complete"},
+  {date:"8/15/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Feature Highlight (Paid)",sessions:2355,rate:"42.65%",ctrl:"36.63%",lift:"+6.02pp",liftClass:"lift-pos",conf:"99.76% ✅",confClass:"conf-win",convB:"Strokes Gained — settings-toggle ask",status:"✅ Complete"},
+  {date:"8/15/26",app:"SU",platform:"iOS",prong:"active",prongLabel:"Feature Highlight (Free)",sessions:21167,rate:"25.04%",ctrl:"24.99%",lift:"+0.05pp",liftClass:"lift-pos",conf:"7.69%",confClass:"conf-low",convB:"Strokes Gained — trial-start ask",status:"✅ Complete"},
+  {date:"8/15/26",app:"SU",platform:"Android",prong:"active",prongLabel:"Feature Highlight (Free)",sessions:5022,rate:"28.04%",ctrl:"26.04%",lift:"+2.00pp",liftClass:"lift-pos",conf:"94.83%",confClass:"conf-low",convB:"Strokes Gained — trial-start ask",status:"✅ Complete"},
 ];
 
 // ── Chart data (sessions + rates) per prong ───────────────
@@ -334,6 +362,12 @@ const allSessionBars = [
   {label:"SU Android Pre-Round 6/19",val:573,pct:3,color:"#3AB54A",prong:"zombie",app:"su"},
   {label:"GS Android Zombie 6/17",val:54,pct:0.3,color:"#1A6FA8",prong:"zombie",app:"gs"},
   {label:"GS Android Pre-Round 6/19",val:35,pct:0.2,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"SU Pre-Round Prep iOS 8/12 (debut)",val:3240,pct:4.2,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"GS Pre-Round Prep iOS 8/12",val:3596,pct:4.6,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS Auto Putt Tracking iOS 8/14",val:3302,pct:4.2,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"SU Pre-Round Prep Android 8/12",val:558,pct:0.7,color:"#3AB54A",prong:"zombie",app:"su"},
+  {label:"GS Pre-Round Prep Android 8/12",val:19,pct:0.02,color:"#1A6FA8",prong:"zombie",app:"gs"},
+  {label:"GS Auto Shot Tracking Android 8/14",val:27,pct:0.03,color:"#1A6FA8",prong:"zombie",app:"gs"},
   {label:"GS MTL Zombie iOS 8/7",val:77930,pct:100,color:"#1A6FA8",prong:"zombie",app:"gs"},
   {label:"SU Koivun Active iOS 7/29",val:32818,pct:42,color:"#7CC47F",prong:"active",app:"su"},
   {label:"SU Ryan Fox Active iOS 7/21",val:22132,pct:28,color:"#7CC47F",prong:"active",app:"su"},
